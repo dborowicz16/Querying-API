@@ -19,14 +19,16 @@ function fetchData(searchTerm) {
   .then(res => res.json())
 
   .then(data => 
-    {for (let i = 0; i < data.length; i++) 
+    {
+      if(data.length == 0){
+        console.log("No results");
+      } else {
+      for (let i = 0; i < data.length; i++) 
       if (data[i].name.includes(searchTerm) == false) {
         console.log(data[i].name)
       }
-
-        console.log("No results!")});
       
-  }
+    }})}
 
    // Runs the function
 enterTerm();
